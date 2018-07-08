@@ -11,7 +11,7 @@ class HelloSparkTest extends FlatSpec with Matchers with SparkSessionSetup {
 
         val df = Seq(10, 20, 30, 40).toDF()
         val hs = new HelloSpark(sparkSession)
-        hs.countElements(df) should be (3)
+        hs.countElements(df) should be (4)
     }
 }
 
