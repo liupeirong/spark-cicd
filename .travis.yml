@@ -1,0 +1,26 @@
+sudo: required
+
+services: 
+  - docker
+
+language: scala
+scala:
+  - 2.11.11
+
+jdk:
+  - oraclejdk8
+
+addons:
+  apt:
+    packages:
+      curl 
+
+before_script:
+- cd /opt
+- curl http://apache.mirror.gtcomm.net/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.6.tgz > spark.tgz
+- tar -xzf spark.tgz
+- rm spark.tgz
+- cd $TRAVIS_BUILD_DIR
+- bash ./services/spark-master.sh &
+- bash ./services/spark-slave.sh &
+- bash ./services/spark-slave2.sh &
