@@ -19,7 +19,7 @@ trait SparkSessionSetup {
     def withSparkSession(testMethod: (SparkSession) => Any) {
         val spark = SparkSession
             .builder()
-            .master("spark://localhost:7077")
+            .master("spark://pliutest.dev:7077")
             .appName("basic spark test")
             .getOrCreate()
        try {
