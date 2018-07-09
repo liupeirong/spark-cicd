@@ -17,9 +17,10 @@ class HelloSparkTest extends FlatSpec with Matchers with SparkSessionSetup {
 
 trait SparkSessionSetup {
     def withSparkSession(testMethod: (SparkSession) => Any) {
+        val hostname = sys.env("HOSTNAME")
         val spark = SparkSession
             .builder()
-            .master("spark://pliutest.dev:7077")
+            .master("spark://" + hostname + ":7077")
             .appName("basic spark test")
             .getOrCreate()
        try {

@@ -9,8 +9,6 @@ addons:
   apt:
     packages:
       curl 
-  hosts:
-    pliutest.dev
 
 before_script:
 - cd /opt
