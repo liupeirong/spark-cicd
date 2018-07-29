@@ -21,6 +21,9 @@ trait SparkSessionSetup {
         val hostname = sys.env("HOSTNAME")
         val spark = SparkSession
             .builder
+            //ClassCastException without this. See stackoverflow
+            //https://stackoverflow.com/questions/39953245/how-to-fix-java-lang-classcastexception-cannot-assign-instance-of-scala-collect
+            //works fine in Notebook or spark-submit without this. 
             .config("spark.jars", "target/sparkcicd-0.0.1-SNAPSHOT.jar")
             .master("spark://" + hostname + ":7077")
             .appName("basic spark test")
