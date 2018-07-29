@@ -21,6 +21,7 @@ trait SparkSessionSetup {
         val hostname = sys.env("HOSTNAME")
         val spark = SparkSession
             .builder
+            .config("spark.jars", "target/sparkcicd-0.0.1-SNAPSHOT.jar")
             .master("spark://" + hostname + ":7077")
             .appName("basic spark test")
             .getOrCreate
