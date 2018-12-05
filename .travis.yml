@@ -12,10 +12,10 @@ addons:
 
 before_script:
 - cd /opt
-- mkdir spark
 - curl http://apache.mirror.gtcomm.net/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.6.tgz > spark.tgz
-- tar -xzf spark.tgz -C spark
+- tar -xzf spark.tgz 
 - rm spark.tgz
+- mv spark-2.4.0-bin-hadoop2.6 spark
 - cd $TRAVIS_BUILD_DIR
 - bash ./services/spark-master.sh &
 - bash ./services/spark-slave.sh &
