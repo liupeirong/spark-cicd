@@ -18,8 +18,7 @@ class WordCountTest extends FlatSpec with Matchers with SparkSessionSetup {
 
 trait SparkSessionSetup {
     def withSparkSession(testMethod: (SparkSession) => Any) {
-        val hostname = sys.env("HOSTNAME")
-        val hostname2 = sys.env("HOSTNAME2")
+        val hostname = "localhost" //sys.env("HOSTNAME")
         val spark = SparkSession
             .builder
             //ClassCastException without this. See stackoverflow
