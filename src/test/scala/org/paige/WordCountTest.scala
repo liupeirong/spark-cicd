@@ -4,7 +4,7 @@ import org.apache.spark.sql.SparkSession
 import org.scalatest._
 
 class WordCountTest extends FlatSpec with Matchers with SparkSessionSetup {
-    "WordCount for 'abc def' 'hij klm abc'" should "should count abc,2 def,1 hij,1 klm,1" in withSparkSession {
+    "WordCount for 'abc def' 'hij klm abc'" should "count abc,2 def,1 hij,1 klm,1" in withSparkSession {
     (sparkSession) =>
         val spark2 = sparkSession
         import spark2.implicits._
@@ -19,6 +19,7 @@ class WordCountTest extends FlatSpec with Matchers with SparkSessionSetup {
 trait SparkSessionSetup {
     def withSparkSession(testMethod: (SparkSession) => Any) {
         val hostname = sys.env("HOSTNAME")
+        val hostname2 = sys.env("HOSTNAME2")
         val spark = SparkSession
             .builder
             //ClassCastException without this. See stackoverflow
