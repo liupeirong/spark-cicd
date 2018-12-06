@@ -6,8 +6,7 @@ import org.scalatest._
 class WordCountTest extends FlatSpec with Matchers with SparkSessionSetup {
     "WordCount for 'abc def' 'hij klm abc'" should "count abc,2 def,1 hij,1 klm,1" in withSparkSession {
     (sparkSession) =>
-        val spark2 = sparkSession
-        import spark2.implicits._
+        import sparkSession.implicits._
         val df = List("abc def", "hij klm abc").toDF
         val wc = new WordCount(sparkSession)
         val result = wc.countWords(df)
