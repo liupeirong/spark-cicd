@@ -1,0 +1,16 @@
+{
+  "name": "Simple spark-submit Job",
+  "new_cluster": {
+    "spark_version": "5.0.x-scala2.11",
+    "node_type_id": "Standard_DS3_v2",
+    "num_workers": 1
+  },
+  "spark_submit_task": {
+    "parameters": [
+      "--class",
+      "org.paige.SparkCiCd",
+      "dbfs:/sparkcicd-0.0.1-SNAPSHOT.jar",
+      "dbfs:/test.txt"
+    ] 
+  }
+}
