@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/liupeirong/spark-cicd.svg?branch=master)](https://travis-ci.com/liupeirong/spark-cicd)
+[![Build status](https://dev.azure.com/paigedevops/spark-github-cd/_apis/build/status/liupeirong.spark-cicd-maven-build?branchName=master)](https://dev.azure.com/paigedevops/spark-github-cd/_build/latest?definitionId=4)
 
 # Spark CI/CD
 
