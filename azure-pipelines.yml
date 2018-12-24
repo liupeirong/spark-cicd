@@ -22,7 +22,8 @@ steps:
 
     Contents: |
      **/*.jar
-     databricks.json
+     databricks_job.json
+     databricks_cli_deploy.sh
      test.txt
 
     TargetFolder: '$(build.artifactstagingdirectory)'

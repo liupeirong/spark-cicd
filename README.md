@@ -12,6 +12,6 @@ This sample creates a simple word count Spark application. CI/CD is set up as fo
 It's also possible to run unit tests with Spark applications using Azure DevOps alone by
 * installing dependencies on the agent, 
 * or using a [private build agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=vsts) with dependencies already installed, 
-* or [running a build job on a container](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=vsts&tabs=yaml). 
+* or [running a build job on a container](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=vsts&tabs=yaml). See [this example](https://dev.azure.com/paigedevops/azure-samples/_build?definitionId=5).
 
 We use Travis CI because it's simple to use, and we demonstrate you can integrate GitHub with Azure DevOps for a complete CI/CD process. 
