@@ -5,7 +5,8 @@
 
 This sample creates a simple word count Spark application. It uses TravisCI GitHub integration to run unit tests, and Azure DevOps GitHub integration to deploy to Azure Databricks.  
 
-CI/CD is set up as following - 
+CI/CD is set up as following -
+ 
 * When code is checked into a feature branch, Travis CI will kick off a validation build and run unit tests. 
 * Once the validation build succeeds, the PR can be merged to the master branch. 
 * Once the PR is merged to the master branch, Azure DevOps will kick off a [build](https://dev.azure.com/paigedevops/spark-github-cd/_build?definitionId=6). When azure-pipelines.yml exists in the root folder of the project, Azure DevOps will attempt to use it as the build pipeline for the project. It also has continuous integration enabled by default. Alternatively, you can create a build pipeline using Azure DevOps visual designer, as seen in this [equivalent pipeline](https://dev.azure.com/paigedevops/spark-github-cd/_build?definitionId=4). 
