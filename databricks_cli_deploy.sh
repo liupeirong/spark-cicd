@@ -2,16 +2,19 @@
 
 set -e 
 
+artifacts_alias=$1
+drop_root="$artifacts_alias"/drop
+
 # install jq and databricks cli
 sudo apt-get install -y jq
 pip install databricks-cli
 
 # copy artifacts to dbfs
-databricks fs cp --overwrite _liupeirong.spark-cicd/drop/target/sparkcicd-0.0.1-SNAPSHOT.jar dbfs:/
-databricks fs cp --overwrite _liupeirong.spark-cicd/drop/test.txt dbfs:/
+databricks fs cp --overwrite "$drop_root"/target/sparkcicd-0.0.1-SNAPSHOT.jar dbfs:/
+databricks fs cp --overwrite "$drop_root"/test.txt dbfs:/
 
 # create a job and run it immediately
-job_id=$(databricks jobs create --json-file _liupeirong.spark-cicd/drop/databricks_job.json | jq '.job_id')
+job_id=$(databricks jobs create --json-file "$drop_root"/databricks_job.json | jq '.job_id')
 run_id=$(databricks jobs run-now --job-id "$job_id" | jq '.run_id')
 
 # wait max 10 minutes for the run to complete, report status
